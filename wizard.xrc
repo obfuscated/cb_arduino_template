@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+	<object class="wxPanel" name="processorChoice">
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxBoxSizer">
+					<object class="sizeritem">
+						<object class="wxCheckBox" name="checkboxExtMem">
+							<label>Use external memory</label>
+							<tooltip>Use external memory SRAM instead of internal SRAM. &#x0A;This option will pass information to the linker which will relocate the &#x0A;.data section of the application to a memory address that you specify.&#x0A;&#x0A;See the processor datasheet for the address that you should use.</tooltip>
+						</object>
+						<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="textctrlExtMem">
+							<value>0x801100</value>
+						</object>
+						<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+						<border>5</border>
+					</object>
+				</object>
+				<flag>wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="m_staticline5" />
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxCheckBox" name="checkboxMap">
+					<label>Create symbol map file (.map)</label>
+					<tooltip>Create an extended symbol file from the .elf output file</tooltip>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxCheckBox" name="checkboxLss">
+					<label>Create extended listing file (.lss)</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxCheckBox" name="checkboxUpload">
+					<label>Upload to board after compiliation</label>
+					<tooltip>Automatically upload to Arudino board after project built</tooltip>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxComboBox" name="uploadPort">
+					<content>
+						<item>/dev/ttyUSB0</item>
+						<item>/dev/ttyUSB1</item>
+						<item>/dev/ttyUSB2</item>
+						<item>/dev/ttyUSB3</item>
+					</content>
+					<style>wxCB_DROPDOWN</style>
+				</object>
+				<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="m_staticline11" />
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="m_staticText2">
+					<label>Libraries</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxCheckListBox" name="m_checkList1">
+					<content>
+						<item>EEPROM</item>
+						<item>Ethernet</item>
+						<item>Firmata</item>
+						<item>Flash</item>
+						<item>LCD4884</item>
+						<item>SD</item>
+						<item>Servo</item>
+						<item>SevenSegment</item>
+						<item>SoftwareSerial</item>
+						<item>SPI</item>
+						<item>Stepper</item>
+						<item>TinyGPS</item>
+						<item>Wire</item>
+					</content>
+					<size>226,100</size>
+					<style>wxLB_MULTIPLE|wxLB_SORT</style>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<border>5</border>
+			</object>
+		</object>
+	</object>
+	<object class="wxPanel" name="targetChoice">
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT2">
+					<label>Comilers</label>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="m_listCompilers" />
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT1">
+					<label>Targets</label>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxCheckListBox" name="m_listTargets">
+					<content>
+						<item>Arduino Uno</item>
+						<item>Arduino Leonardo</item>
+						<item>Arduino Esplora</item>
+						<item>Arduino Micro</item>
+						<item>Arduino Duemilanove (328)</item>
+						<item>Arduino Duemilanove (168)</item>
+						<item>Arduino Nano (328)</item>
+						<item>Arduino Nano (168)</item>
+						<item>Arduino Mini (328)</item>
+						<item>Arduino Mini (168)</item>
+						<item>Arduino Pro Mini (328)</item>
+						<item>Arduino Pro Mini (168)</item>
+						<item>Arduino Mega 2560/ADK</item>
+						<item>Arduino Mega 1280</item>
+						<item>Arduino Mega 8</item>
+						<item>Microduino Core+ (644P)</item>
+						<item>Freematics OBD-II Adapter</item>
+					</content>
+					<size>300,300</size>
+					<style>wxLB_MULTIPLE</style>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</resource>
