@@ -242,6 +242,7 @@ function CreateTarget(project, targetName, processor, variant, baudrate, boardID
             target.AddCommandsAfterBuild(pb_lss);
 
         target.AddLinkerOption(_T("-s"));
+        target.AddLinkerOption(_T("-lm"));
 
         OptimizationsOn(target, GetCompilerID());
         target.SetTargetType(ttConsoleOnly);
