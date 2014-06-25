@@ -295,7 +295,7 @@ function SetupProject(project)
 {
     project.SetCompilerID(GetCompilerID());
     project.AddCompilerOption(_T("-DF_CPU=16000000L"));
-    project.AddCompilerOption(_T("-DARDUINO=101"));
+    project.AddCompilerOption(_T("-DARDUINO=105"));
     project.AddCompilerOption(_T("-fno-exceptions"));
     project.AddCompilerOption(_T("-ffunction-sections"));
     project.AddCompilerOption(_T("-fdata-sections"));
