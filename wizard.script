@@ -18,6 +18,7 @@ BaudRate <- _T("57600");
 Libs <- _T("");
 SelectedTargets <- wxArrayString();
 SelectedCompiler <- _T("");
+AddSimTargets <- false;
 
 
 function BeginWizard()
@@ -95,6 +96,7 @@ function OnLeave_targetChoice(fwd)
     }
 
     SelectedCompiler = Wizard.GetItemContainerStringSelection(_T("m_listCompilers"));
+    AddSimTargets = Wizard.IsCheckboxChecked(_T("m_checkSimulator"));
     return true;
 }
 
@@ -353,23 +355,31 @@ function SetupProject(project)
     CreateTarget(project, _T("Microduino Core+ (644P)"), _T("atmega644p"), _T("plus"), _T("115200"), _T("uduino644p"));
     CreateTarget(project, _T("Freematics OBD-II Adapter"), _T("atmega644p"), _T("plus"), _T("115200"), _T("uduino644p"));
 
-    // Debug build target
-    local target = project.GetBuildTarget(Wizard.GetDebugName());
-    if (!IsNull(target))
+    if (AddSimTargets)
     {
-        DebugSymbolsOn(target, GetCompilerID());
-        SetSimTarget(project, target);
-    }
+        // Debug build target
+        local target = project.GetBuildTarget(Wizard.GetDebugName());
+        if (!IsNull(target))
+        {
+            DebugSymbolsOn(target, GetCompilerID());
+            SetSimTarget(project, target);
+        }
 
-    // Release build target
-    target = project.GetBuildTarget(Wizard.GetReleaseName());
-    if (!IsNull(target))
-    {
-        OptimizationsOn(target, GetCompilerID());
-        SetSimTarget(project, target);
+        // Release build target
+        target = project.GetBuildTarget(Wizard.GetReleaseName());
+        if (!IsNull(target))
+        {
+            OptimizationsOn(target, GetCompilerID());
+            SetSimTarget(project, target);
+        }
+        project.RenameBuildTarget(0, _T("Simulator - Debug"));
+        project.RenameBuildTarget(1, _T("Simulator - Release"));
     }
-    project.RenameBuildTarget(0, _T("Simulator - Debug"));
-    project.RenameBuildTarget(1, _T("Simulator - Release"));
+    else
+    {
+        project.RemoveBuildTarget(Wizard.GetDebugName());
+        project.RemoveBuildTarget(Wizard.GetReleaseName());
+    }
 
     return true;
 }
