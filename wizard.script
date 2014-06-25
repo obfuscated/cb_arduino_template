@@ -137,6 +137,7 @@ function AddCoreSourceCode(project, targetName)
     AddSourceFile(project, targetName, _T("cores/CDC.cpp"));
     AddSourceFile(project, targetName, _T("cores/IPAddress.cpp"));
     AddSourceFile(project, targetName, _T("cores/main.cpp"));
+    AddSourceFile(project, targetName, _T("cores/libraries/libraries.cpp"));
     AddSourceFile(project, targetName, _T("sketch.cpp"));
 }
 
