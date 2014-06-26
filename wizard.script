@@ -36,8 +36,6 @@ function BeginWizard()
         Wizard.AddPage(_T("targetChoice"));
         Wizard.AddPage(_T("processorChoice"));
         Wizard.AddProjectPathPage();
-//        Wizard.AddCompilerPage(_T("GNU AVR GCC Compiler"), _T("avr*"), true, true);
-//        Wizard.AddBuildTargetPage(_T("test"), false, true, _T(""), _T("avr*"), true);
     }
     else
         print(wiz_type);
@@ -289,7 +287,6 @@ function SetSimTarget(project, target)
     target.SetVar(_T("ARDUINO_DIR"), _T("${HOME}/.codeblocks/ardusim"), false);
     target.SetTargetType(ttConsoleOnly);
     target.SetTargetFilenameGenerationPolicy(tgfpPlatformDefault, tgfpNone);
-    //target.SetOutputFilename(Wizard.GetDebugOutputDir() + Wizard.GetProjectName());
     target.SetCompilerID(_T("GCC"));
 }
 
