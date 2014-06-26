@@ -80,17 +80,31 @@
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxComboBox" name="uploadPort">
-					<content>
-						<item>/dev/ttyUSB0</item>
-						<item>/dev/ttyUSB1</item>
-						<item>/dev/ttyUSB2</item>
-						<item>/dev/ttyUSB3</item>
-					</content>
-					<style>wxCB_DROPDOWN</style>
+				<object class="wxBoxSizer">
+					<object class="sizeritem">
+						<object class="wxStaticText" name="ID_STATICTEXT1">
+							<label>Port</label>
+						</object>
+						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxComboBox" name="uploadPort">
+							<content>
+								<item>/dev/ttyUSB0</item>
+								<item>/dev/ttyUSB1</item>
+								<item>/dev/ttyUSB2</item>
+								<item>/dev/ttyUSB3</item>
+							</content>
+							<style>wxCB_DROPDOWN</style>
+						</object>
+						<flag>wxALL|wxEXPAND|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
 				</object>
-				<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
+				<option>1</option>
 			</object>
 			<object class="sizeritem">
 				<object class="wxStaticLine" name="m_staticline11" />
@@ -124,7 +138,7 @@
 					<size>226,100</size>
 					<style>wxLB_MULTIPLE|wxLB_SORT</style>
 				</object>
-				<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
 				<border>5</border>
 			</object>
 		</object>
