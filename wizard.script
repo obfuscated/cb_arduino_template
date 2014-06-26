@@ -17,6 +17,7 @@ AvrExtMemAddr <- ""      // The external memory address
 BaudRate <- _T("57600");
 Libs <- _T("");
 SelectedTargets <- wxArrayString();
+SelectedLibraries <- wxArrayString();
 SelectedCompiler <- _T("");
 AddSimTargets <- false;
 ComboboxFreq <- 0;
@@ -66,6 +67,9 @@ function OnLeave_processorChoice(fwd)
 
         if (IsNull(AvrPort))
             AvrUpload = false;
+
+        local libraries = Wizard.GetCheckListboxStringChecked(_T("listLibraries"));
+        SelectedLibraries = GetArrayFromString(libraries, _(";"), true);
     }
     return true;
 }
@@ -139,6 +143,14 @@ function AddCoreSourceCode(project, targetName)
     AddSourceFile(project, targetName, _T("cores/main.cpp"));
     AddSourceFile(project, targetName, _T("cores/libraries/libraries.cpp"));
     AddSourceFile(project, targetName, _T("sketch.cpp"));
+}
+
+function AddLibrary(project, name, define)
+{
+    if (SelectedLibraries.Index(name) == -1)
+        project.AddCompilerOption(_T("-DUSE_") + define + _T("=0"));
+    else
+        project.AddCompilerOption(_T("-DUSE_") + define + _T("=1"));
 }
 
 function SetTargetFreq(target)
@@ -337,19 +349,20 @@ function SetupProject(project)
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
 
-    project.AddCompilerOption(_T("-DUSE_EEPROM=0"));
-    project.AddCompilerOption(_T("-DUSE_ETHERNET=0"));
-    project.AddCompilerOption(_T("-DUSE_FIRMATA=0"));
-    project.AddCompilerOption(_T("-DUSE_LCD=0"));
-    project.AddCompilerOption(_T("-DUSE_LCD4884=0"));
-    project.AddCompilerOption(_T("-DUSE_OBD=0"));
-    project.AddCompilerOption(_T("-DUSE_SD=0"));
-    project.AddCompilerOption(_T("-DUSE_SERVO=0"));
-    project.AddCompilerOption(_T("-DUSE_SOFTSERIAL=0"));
-    project.AddCompilerOption(_T("-DUSE_SPI=0"));
-    project.AddCompilerOption(_T("-DUSE_STEPPER=0"));
-    project.AddCompilerOption(_T("-DUSE_TINYGPS=0"));
-    project.AddCompilerOption(_T("-DUSE_WIRE=0"));
+    AddLibrary(project, _T("EEPROM"), _T("EEPROM"));
+    AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
+    AddLibrary(project, _T("Firmata"), _T("FIRMATA"));
+    AddLibrary(project, _T("Flash"), _T("FLASH"));
+    AddLibrary(project, _T("SevenSegment"), _T("LCD"));
+    AddLibrary(project, _T("LCD4884"), _T("LCD4884"));
+    AddLibrary(project, _T("OBD"), _T("OBD"));
+    AddLibrary(project, _T("SD"), _T("SD"));
+    AddLibrary(project, _T("Servo"), _T("SERVO"));
+    AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
+    AddLibrary(project, _T("SPI"), _T("SPI"));
+    AddLibrary(project, _T("Stepoer"), _T("STEPPER"));
+    AddLibrary(project, _T("TinyGPS"), _T("TINYGPS"));
+    AddLibrary(project, _T("Wire"), _T("WIRE"));
 
     WarningsOn(project, GetCompilerID());
 

@@ -119,13 +119,14 @@
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxCheckListBox" name="m_checkList1">
+				<object class="wxCheckListBox" name="listLibraries">
 					<content>
 						<item>EEPROM</item>
 						<item>Ethernet</item>
 						<item>Firmata</item>
 						<item>Flash</item>
 						<item>LCD4884</item>
+						<item>OBD</item>
 						<item>SD</item>
 						<item>Servo</item>
 						<item>SevenSegment</item>
