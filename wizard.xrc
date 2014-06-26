@@ -26,6 +26,32 @@
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
+				<object class="wxBoxSizer">
+					<object class="sizeritem">
+						<object class="wxStaticText" name="textChoice1">
+							<label>Operating Frequency</label>
+						</object>
+						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxChoice" name="comboboxFreq">
+							<content>
+								<item>16 Mhz</item>
+								<item>12 Mhz</item>
+								<item>8 Mhz</item>
+							</content>
+							<selection>0</selection>
+						</object>
+						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+						<border>3</border>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
 				<object class="wxStaticLine" name="m_staticline5" />
 				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
 				<border>5</border>
