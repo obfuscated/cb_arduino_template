@@ -292,10 +292,22 @@ function CreateTarget(project, targetName, processor, variant, baudrate, boardID
 
         if (AvrUpload)
         {
+            local programmer = _T("arduino");
             if (PLATFORM_MSW == PLATFORM)
-                target.AddCommandsAfterBuild(_T("avrdude -V -C \"$(TARGET_COMPILER_DIR)etc/avrdude.conf\" -p${MCU} -carduino -P\\\\.\\${UPLOAD_PORT} -b${UPLOAD_BAUDRATE} -D -Uflash:w:${TARGET_OUTPUT_DIR}${TARGET_OUTPUT_BASENAME}.elf.hex:i"));
+                target.AddCommandsAfterBuild(_T("avrdude -V -C \"$(TARGET_COMPILER_DIR)etc/avrdude.conf\" -p${MCU} -c")
+                                             + programmer
+                                             + _T(" -P\\\\.\\${UPLOAD_PORT} -b${UPLOAD_BAUDRATE} -D -Uflash:w:${TARGET_OUTPUT_DIR}${TARGET_OUTPUT_BASENAME}.elf.hex:i"));
             else
-                target.AddCommandsAfterBuild(_T("avrdude -V -C /etc/avrdude.conf -p${MCU} -carduino -P${UPLOAD_PORT} -b${UPLOAD_BAUDRATE} -D -Uflash:w:${TARGET_OUTPUT_DIR}${TARGET_OUTPUT_BASENAME}.elf.hex:i"));
+            {
+                if (processor.Matches(_T("atmega32u4")))
+                {
+                    target.AddCommandsAfterBuild(_T("stty -F ${UPLOAD_PORT} 1200"));
+                    target.AddCommandsAfterBuild(_T("sleep 2"));
+                    programmer = _T("avr109");
+                }
+                target.AddCommandsAfterBuild(_T("avrdude -V -C /etc/avrdude.conf -p${MCU} -c")
+                                             + programmer + _T(" -P${UPLOAD_PORT} -b${UPLOAD_BAUDRATE} -D -Uflash:w:${TARGET_OUTPUT_DIR}${TARGET_OUTPUT_BASENAME}.elf.hex:i"));
+            }
         }
 
         AddCoreSourceCode(project, targetName);
