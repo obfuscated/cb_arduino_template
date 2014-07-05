@@ -58,7 +58,7 @@ function OnLeave_processorChoice(fwd)
     if (fwd)
     {
         AvrUpload = Wizard.IsCheckboxChecked(_T("checkboxUpload"));
-        AvrPort = Wizard.GetComboboxStringSelection(_T("uploadPort"));
+        AvrPort = Wizard.GetComboboxValue(_T("uploadPort"));
         AvrMap = Wizard.IsCheckboxChecked(_T("checkboxMap"));
         AvrLss = Wizard.IsCheckboxChecked(_T("checkboxLss"));
         AvrExtMem = Wizard.IsCheckboxChecked(_T("checkboxExtMem"));

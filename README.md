@@ -23,7 +23,7 @@ Its main goal is to provide easy to use standalone template, which can be used i
 
 ## Requires
 
-Code::Blocks SVN rev 9832, because there are some changes in the Scripted wizard plugin.
+Code::Blocks SVN rev 9842, because there are some changes in the Scripted wizard plugin.
 
 ## Install
 
