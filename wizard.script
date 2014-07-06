@@ -272,8 +272,8 @@ function CreateTarget(project, targetName, processor, variant, baudrate, boardID
         OptimizationsOn(target, GetCompilerID());
         target.SetTargetType(ttConsoleOnly);
         target.SetTargetFilenameGenerationPolicy(tgfpPlatformDefault, tgfpNone);
-        target.SetOutputFilename(_T("bin/") + variant + _T("/") + Wizard.GetProjectName() + _T(".elf"));
-        target.SetObjectOutput(_T(".objs/") + variant);
+        target.SetOutputFilename(_T("bin/") + boardID + _T("/") + project.GetTitle() + _T(".elf"));
+        target.SetObjectOutput(_T(".objs/") + boardID);
 
         target.SetVar(_T("BOARD"), targetName, false);
         target.SetVar(_T("BOARD_ID"), boardID, false);
