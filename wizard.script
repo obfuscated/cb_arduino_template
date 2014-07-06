@@ -98,6 +98,15 @@ function GetFilesDir()
 // Processor choice page
 ////////////////////////////////////////////////////////////////////////////////
 
+function OnEnter_processorChoice(fwd)
+{
+    if (Wizard.GetWizardType() == wizTarget)
+    {
+        Wizard.EnableWindow(_T("listLibraries"), false);
+    }
+    return true;
+}
+
 function OnLeave_processorChoice(fwd)
 {
     if (fwd)
