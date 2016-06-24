@@ -408,12 +408,14 @@ function SetSimTarget(project, target)
 function SetupProject(project)
 {
     project.SetCompilerID(GetCompilerID());
-    project.AddCompilerOption(_T("-DARDUINO=105"));
+    project.AddCompilerOption(_T("-DARDUINO=10609"));
     project.AddCompilerOption(_T("-fno-exceptions"));
     project.AddCompilerOption(_T("-ffunction-sections"));
     project.AddCompilerOption(_T("-fdata-sections"));
     project.AddCompilerOption(_T("-x c++"));
     project.AddCompilerOption(_T("-s"));
+    project.AddCompilerOption(_T("-std=c++11"));
+    project.AddCompilerOption(_T("-fno-threadsafe-statics"));
     project.AddLinkerOption(_T("-Wl,--gc-sections"));
 
     project.AddIncludeDir(_T("."));
