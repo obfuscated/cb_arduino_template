@@ -344,7 +344,7 @@ function FillTargetData(project, target, info)
         target.SetVar(_T("MCU"), processor, false);
         target.SetVar(_T("UPLOAD_BAUDRATE"), baudrate, false);
         target.SetVar(_T("UPLOAD_PORT"), AvrPort, false);
-        target.SetVar(_T("ARDUINO_DIR"), _T("$(HOME)/.codeblocks/arduino"), false);
+        target.SetVar(_T("ARDUINO_DIR"), _T("$(#arduino)"), false);
 
         if (optimized)
         {
