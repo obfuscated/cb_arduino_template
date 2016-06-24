@@ -312,7 +312,7 @@ function FillTargetData(project, target, info)
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/variants/" + variant));
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/src"));
 
         // Project linker options
         target.AddLinkerOption(_T("-mmcu=$(MCU)"));
