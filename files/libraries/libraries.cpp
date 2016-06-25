@@ -15,14 +15,6 @@
 #include "LiquidCrystal.cpp"
 #endif
 
-#if USE_LCD4884
-#include "LCD4884.cpp"
-#endif
-
-#if USE_OBD
-#include "OBD.cpp"
-#endif
-
 #if USE_SD
 #include "SD.cpp"
 #include "Sd2Card.cpp"

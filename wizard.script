@@ -423,8 +423,6 @@ function SetupProject(project)
     project.AddIncludeDir(_T("."));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src/utility"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LCD4884"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LCD4Bit_mod"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/utility"));
@@ -439,8 +437,6 @@ function SetupProject(project)
 
     AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
     AddLibrary(project, _T("SevenSegment"), _T("LCD"));
-    AddLibrary(project, _T("LCD4884"), _T("LCD4884"));
-    AddLibrary(project, _T("OBD"), _T("OBD"));
     AddLibrary(project, _T("SD"), _T("SD"));
     AddLibrary(project, _T("Servo"), _T("SERVO"));
     AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
