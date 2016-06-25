@@ -1,10 +1,14 @@
 #include <Arduino.h>
 
 #if USE_ETHERNET
+#include "Dhcp.cpp"
+#include "Dns.cpp"
 #include "Ethernet.cpp"
 #include "EthernetClient.cpp"
 #include "EthernetServer.cpp"
 #include "EthernetUdp.cpp"
+#include "socket.cpp"
+#include "w5100.cpp"
 #endif
 
 #if USE_FIRMATA
@@ -39,7 +43,7 @@
 #include "SoftwareSerial.cpp"
 #endif
 
-#if USE_SPI
+#if USE_SPI || USE_ETHERNET
 #include "SPI.cpp"
 #endif
 
