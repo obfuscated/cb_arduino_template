@@ -124,7 +124,6 @@
 				<object class="wxCheckListBox" name="listLibraries">
 					<content>
 						<item>Ethernet</item>
-						<item>Firmata</item>
 						<item>Flash</item>
 						<item>LCD4884</item>
 						<item>OBD</item>

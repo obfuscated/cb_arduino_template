@@ -11,10 +11,6 @@
 #include "w5100.cpp"
 #endif
 
-#if USE_FIRMATA
-#include "Firmata.cpp"
-#endif
-
 #if USE_LCD
 #include "LiquidCrystal.cpp"
 #endif
