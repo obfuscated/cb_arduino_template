@@ -435,7 +435,6 @@ function SetupProject(project)
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SoftwareSerial"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SPI"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Stepper"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/TinyGPS"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
 
@@ -446,7 +445,6 @@ function SetupProject(project)
     AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
     AddLibrary(project, _T("SPI"), _T("SPI"));
     AddLibrary(project, _T("Stepoer"), _T("STEPPER"));
-    AddLibrary(project, _T("TinyGPS"), _T("TINYGPS"));
     AddLibrary(project, _T("Wire"), _T("WIRE"));
 
     WarningsOn(project, GetCompilerID());

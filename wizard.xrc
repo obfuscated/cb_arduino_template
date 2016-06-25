@@ -130,7 +130,6 @@
 						<item>SoftwareSerial</item>
 						<item>SPI</item>
 						<item>Stepper</item>
-						<item>TinyGPS</item>
 						<item>Wire</item>
 					</content>
 					<size>226,100</size>

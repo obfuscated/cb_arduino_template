@@ -39,10 +39,6 @@
 #include "stepper.cpp"
 #endif
 
-#if USE_TINYGPS
-#include "TinyGPS.cpp"
-#endif
-
 #if USE_WIRE
 #include "Wire.cpp"
 #include "twi.c"
