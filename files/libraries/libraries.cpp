@@ -1,30 +1,18 @@
 #include <Arduino.h>
 
-#if USE_EEPROM
-#include "EEPROM.cpp"
-#endif
-
 #if USE_ETHERNET
+#include "Dhcp.cpp"
+#include "Dns.cpp"
 #include "Ethernet.cpp"
 #include "EthernetClient.cpp"
 #include "EthernetServer.cpp"
 #include "EthernetUdp.cpp"
-#endif
-
-#if USE_FIRMATA
-#include "Firmata.cpp"
+#include "socket.cpp"
+#include "w5100.cpp"
 #endif
 
 #if USE_LCD
 #include "LiquidCrystal.cpp"
-#endif
-
-#if USE_LCD4884
-#include "LCD4884.cpp"
-#endif
-
-#if USE_OBD
-#include "OBD.cpp"
 #endif
 
 #if USE_SD
@@ -43,16 +31,12 @@
 #include "SoftwareSerial.cpp"
 #endif
 
-#if USE_SPI
+#if USE_SPI || USE_ETHERNET
 #include "SPI.cpp"
 #endif
 
 #if USE_STEPPER
-#include "stepper.cpp"
-#endif
-
-#if USE_TINYGPS
-#include "TinyGPS.cpp"
+#include "Stepper.cpp"
 #endif
 
 #if USE_WIRE

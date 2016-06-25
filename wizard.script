@@ -190,9 +190,14 @@ function AddCoreSourceCode(project, targetName)
     AddSourceFile(project, targetName, _T("cores/wiring_digital.c"));
     AddSourceFile(project, targetName, _T("cores/wiring_analog.c"));
     AddSourceFile(project, targetName, _T("cores/wiring_pulse.c"));
+    AddSourceFile(project, targetName, _T("cores/wiring_pulse_asm.S"));
     AddSourceFile(project, targetName, _T("cores/wiring_shift.c"));
     AddSourceFile(project, targetName, _T("cores/HID.cpp"));
     AddSourceFile(project, targetName, _T("cores/HardwareSerial.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial0.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial1.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial2.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial3.cpp"));
     AddSourceFile(project, targetName, _T("cores/new.cpp"));
     AddSourceFile(project, targetName, _T("cores/Print.cpp"));
     AddSourceFile(project, targetName, _T("cores/Stream.cpp"));
@@ -309,9 +314,13 @@ function FillTargetData(project, target, info)
             target.AddCompilerOption(_T("-D__AVR_ATmega328P__"));
         }
 
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/cores/arduino"));
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries"));
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/variants/" + variant));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/variants/" + variant));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/SPI/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/SoftwareSerial/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/Wire/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/Wire/src/utility"));
 
         // Project linker options
         target.AddLinkerOption(_T("-mmcu=$(MCU)"));
@@ -344,7 +353,7 @@ function FillTargetData(project, target, info)
         target.SetVar(_T("MCU"), processor, false);
         target.SetVar(_T("UPLOAD_BAUDRATE"), baudrate, false);
         target.SetVar(_T("UPLOAD_PORT"), AvrPort, false);
-        target.SetVar(_T("ARDUINO_DIR"), _T("$(HOME)/.codeblocks/arduino"), false);
+        target.SetVar(_T("ARDUINO_DIR"), _T("$(#arduino)"), false);
 
         if (optimized)
         {
@@ -408,46 +417,30 @@ function SetSimTarget(project, target)
 function SetupProject(project)
 {
     project.SetCompilerID(GetCompilerID());
-    project.AddCompilerOption(_T("-DARDUINO=105"));
+    project.AddCompilerOption(_T("-DARDUINO=10609"));
     project.AddCompilerOption(_T("-fno-exceptions"));
     project.AddCompilerOption(_T("-ffunction-sections"));
     project.AddCompilerOption(_T("-fdata-sections"));
-    project.AddCompilerOption(_T("-x c++"));
     project.AddCompilerOption(_T("-s"));
+    project.AddCompilerOption(_T("-std=c++11"));
+    project.AddCompilerOption(_T("-fno-threadsafe-statics"));
     project.AddLinkerOption(_T("-Wl,--gc-sections"));
 
-    project.AddIncludeDir(_T("."));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/EEPROM"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Firmata"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Flash"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LCD4884"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LCD4Bit_mod"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/utility"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Servo"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SevenSegment"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SoftwareSerial"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SPI"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Stepper"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/TinyGPS"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src/utility"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal/src"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/src"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/src/utility"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Servo/src/avr"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Stepper/src"));
 
-    AddLibrary(project, _T("EEPROM"), _T("EEPROM"));
     AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
-    AddLibrary(project, _T("Firmata"), _T("FIRMATA"));
-    AddLibrary(project, _T("Flash"), _T("FLASH"));
-    AddLibrary(project, _T("SevenSegment"), _T("LCD"));
-    AddLibrary(project, _T("LCD4884"), _T("LCD4884"));
-    AddLibrary(project, _T("OBD"), _T("OBD"));
+    AddLibrary(project, _T("LiquidCrystal"), _T("LCD"));
     AddLibrary(project, _T("SD"), _T("SD"));
     AddLibrary(project, _T("Servo"), _T("SERVO"));
     AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
     AddLibrary(project, _T("SPI"), _T("SPI"));
-    AddLibrary(project, _T("Stepoer"), _T("STEPPER"));
-    AddLibrary(project, _T("TinyGPS"), _T("TINYGPS"));
+    AddLibrary(project, _T("Stepper"), _T("STEPPER"));
     AddLibrary(project, _T("Wire"), _T("WIRE"));
 
     WarningsOn(project, GetCompilerID());
