@@ -184,6 +184,7 @@ function AddSourceFile(project, targetName, filename)
 
 function AddCoreSourceCode(project, targetName)
 {
+    AddSourceFile(project, targetName, _T("cores/hooks.c"));
     AddSourceFile(project, targetName, _T("cores/WString.cpp"));
     AddSourceFile(project, targetName, _T("cores/WMath.cpp"));
     AddSourceFile(project, targetName, _T("cores/wiring.c"));
@@ -309,9 +310,13 @@ function FillTargetData(project, target, info)
             target.AddCompilerOption(_T("-D__AVR_ATmega328P__"));
         }
 
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/cores/arduino"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries"));
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/variants/" + variant));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/variants/" + variant));
+        if (PLATFORM_MSW == PLATFORM)
+            target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/src"));
+        else
+            target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID"));
 
         // Project linker options
         target.AddLinkerOption(_T("-mmcu=$(MCU)"));
@@ -344,7 +349,10 @@ function FillTargetData(project, target, info)
         target.SetVar(_T("MCU"), processor, false);
         target.SetVar(_T("UPLOAD_BAUDRATE"), baudrate, false);
         target.SetVar(_T("UPLOAD_PORT"), AvrPort, false);
-        target.SetVar(_T("ARDUINO_DIR"), _T("$(HOME)/.codeblocks/arduino"), false);
+        if (PLATFORM_MSW == PLATFORM)
+            target.SetVar(_T("ARDUINO_DIR"), _T("$(TARGET_COMPILER_DIR)../../.."), false);
+        else
+            target.SetVar(_T("ARDUINO_DIR"), _T("$(HOME)/.codeblocks/arduino"), false);
 
         if (optimized)
         {
