@@ -424,8 +424,8 @@ function SetupProject(project)
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal/src"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/utility"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/src"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/src/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Servo"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SevenSegment"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SoftwareSerial"));
