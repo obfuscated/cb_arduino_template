@@ -200,7 +200,6 @@
 			<object class="sizeritem">
 				<object class="wxCheckBox" name="m_checkSimulator">
 					<label>Add simulator targets</label>
-					<checked>1</checked>
 				</object>
 				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
