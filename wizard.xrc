@@ -124,9 +124,9 @@
 				<object class="wxCheckListBox" name="listLibraries">
 					<content>
 						<item>Ethernet</item>
+						<item>LiquidCrystal</item>
 						<item>SD</item>
 						<item>Servo</item>
-						<item>SevenSegment</item>
 						<item>SoftwareSerial</item>
 						<item>SPI</item>
 						<item>Stepper</item>

@@ -423,7 +423,7 @@ function SetupProject(project)
     project.AddIncludeDir(_T("."));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src/utility"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal/src"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Servo"));
@@ -436,7 +436,7 @@ function SetupProject(project)
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
 
     AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
-    AddLibrary(project, _T("SevenSegment"), _T("LCD"));
+    AddLibrary(project, _T("LiquidCrystal"), _T("LCD"));
     AddLibrary(project, _T("SD"), _T("SD"));
     AddLibrary(project, _T("Servo"), _T("SERVO"));
     AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
