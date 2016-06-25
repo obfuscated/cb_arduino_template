@@ -10,7 +10,7 @@
 							<label>Use external memory</label>
 							<tooltip>Use external memory SRAM instead of internal SRAM. &#x0A;This option will pass information to the linker which will relocate the &#x0A;.data section of the application to a memory address that you specify.&#x0A;&#x0A;See the processor datasheet for the address that you should use.</tooltip>
 						</object>
-						<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<option>1</option>
 					</object>
@@ -18,11 +18,11 @@
 						<object class="wxTextCtrl" name="textctrlExtMem">
 							<value>0x801100</value>
 						</object>
-						<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+						<flag>wxALL|wxALIGN_TOP</flag>
 						<border>5</border>
 					</object>
 				</object>
-				<flag>wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
@@ -31,7 +31,7 @@
 						<object class="wxStaticText" name="textChoice1">
 							<label>Operating Frequency</label>
 						</object>
-						<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 					</object>
 					<object class="sizeritem">
@@ -43,17 +43,17 @@
 							</content>
 							<selection>0</selection>
 						</object>
-						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>3</border>
 						<option>1</option>
 					</object>
 				</object>
-				<flag>wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<flag>wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
 				<object class="wxStaticLine" name="m_staticline5" />
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
@@ -61,14 +61,14 @@
 					<label>Create symbol map file (.map)</label>
 					<tooltip>Create an extended symbol file from the .elf output file</tooltip>
 				</object>
-				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<flag>wxALL|wxALIGN_LEFT</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
 				<object class="wxCheckBox" name="checkboxLss">
 					<label>Create extended listing file (.lss)</label>
 				</object>
-				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<flag>wxALL|wxALIGN_LEFT</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
@@ -76,7 +76,7 @@
 					<label>Upload to board after compiliation</label>
 					<tooltip>Automatically upload to Arudino board after project built</tooltip>
 				</object>
-				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<flag>wxALL|wxALIGN_LEFT</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
@@ -85,7 +85,7 @@
 						<object class="wxStaticText" name="ID_STATICTEXT1">
 							<label>Port</label>
 						</object>
-						<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 					</object>
 					<object class="sizeritem">
@@ -102,22 +102,22 @@
 							</content>
 							<style>wxCB_DROPDOWN</style>
 						</object>
-						<flag>wxALL|wxEXPAND|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
 					</object>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<flag>wxALL|wxEXPAND</flag>
 			</object>
 			<object class="sizeritem">
 				<object class="wxStaticLine" name="m_staticline11" />
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
 				<object class="wxStaticText" name="m_staticText2">
 					<label>Libraries</label>
 				</object>
-				<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxALL|wxALIGN_LEFT</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
@@ -141,7 +141,7 @@
 					<size>226,100</size>
 					<style>wxLB_MULTIPLE|wxLB_SORT</style>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 				<option>1</option>
 			</object>
@@ -154,19 +154,19 @@
 				<object class="wxStaticText" name="ID_STATICTEXT2">
 					<label>Comilers</label>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
 				<object class="wxChoice" name="m_listCompilers" />
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
 				<object class="wxStaticText" name="ID_STATICTEXT1">
 					<label>Targets</label>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
@@ -193,7 +193,7 @@
 					<size>300,300</size>
 					<style>wxLB_MULTIPLE</style>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 				<option>1</option>
 			</object>
@@ -202,7 +202,7 @@
 					<label>Add simulator targets</label>
 					<checked>1</checked>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_BOTTOM</flag>
+				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 		</object>
