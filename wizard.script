@@ -194,6 +194,10 @@ function AddCoreSourceCode(project, targetName)
     AddSourceFile(project, targetName, _T("cores/wiring_shift.c"));
     AddSourceFile(project, targetName, _T("cores/HID.cpp"));
     AddSourceFile(project, targetName, _T("cores/HardwareSerial.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial0.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial1.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial2.cpp"));
+    AddSourceFile(project, targetName, _T("cores/HardwareSerial3.cpp"));
     AddSourceFile(project, targetName, _T("cores/new.cpp"));
     AddSourceFile(project, targetName, _T("cores/Print.cpp"));
     AddSourceFile(project, targetName, _T("cores/Stream.cpp"));
