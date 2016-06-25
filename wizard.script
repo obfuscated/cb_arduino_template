@@ -190,6 +190,7 @@ function AddCoreSourceCode(project, targetName)
     AddSourceFile(project, targetName, _T("cores/wiring_digital.c"));
     AddSourceFile(project, targetName, _T("cores/wiring_analog.c"));
     AddSourceFile(project, targetName, _T("cores/wiring_pulse.c"));
+    AddSourceFile(project, targetName, _T("cores/wiring_pulse_asm.S"));
     AddSourceFile(project, targetName, _T("cores/wiring_shift.c"));
     AddSourceFile(project, targetName, _T("cores/HID.cpp"));
     AddSourceFile(project, targetName, _T("cores/HardwareSerial.cpp"));
