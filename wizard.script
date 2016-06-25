@@ -420,7 +420,6 @@ function SetupProject(project)
     project.AddLinkerOption(_T("-Wl,--gc-sections"));
 
     project.AddIncludeDir(_T("."));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/EEPROM"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Firmata"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Flash"));
@@ -438,7 +437,6 @@ function SetupProject(project)
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
 
-    AddLibrary(project, _T("EEPROM"), _T("EEPROM"));
     AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
     AddLibrary(project, _T("Firmata"), _T("FIRMATA"));
     AddLibrary(project, _T("Flash"), _T("FLASH"));

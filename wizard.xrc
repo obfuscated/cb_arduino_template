@@ -123,7 +123,6 @@
 			<object class="sizeritem">
 				<object class="wxCheckListBox" name="listLibraries">
 					<content>
-						<item>EEPROM</item>
 						<item>Ethernet</item>
 						<item>Firmata</item>
 						<item>Flash</item>

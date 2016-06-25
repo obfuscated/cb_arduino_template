@@ -1,9 +1,5 @@
 #include <Arduino.h>
 
-#if USE_EEPROM
-#include "EEPROM.cpp"
-#endif
-
 #if USE_ETHERNET
 #include "Ethernet.cpp"
 #include "EthernetClient.cpp"
