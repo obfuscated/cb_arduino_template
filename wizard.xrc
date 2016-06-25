@@ -132,7 +132,7 @@
 						<item>Stepper</item>
 						<item>Wire</item>
 					</content>
-					<size>226,100</size>
+					<size>300,180</size>
 					<style>wxLB_MULTIPLE|wxLB_SORT</style>
 				</object>
 				<flag>wxALL|wxEXPAND</flag>
