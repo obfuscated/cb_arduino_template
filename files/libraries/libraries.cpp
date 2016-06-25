@@ -36,7 +36,7 @@
 #endif
 
 #if USE_STEPPER
-#include "stepper.cpp"
+#include "Stepper.cpp"
 #endif
 
 #if USE_WIRE
