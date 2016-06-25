@@ -319,6 +319,9 @@ function FillTargetData(project, target, info)
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/variants/" + variant));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/src"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/SPI/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/SoftwareSerial/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/Wire/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/Wire/src/utility"));
 
         // Project linker options
         target.AddLinkerOption(_T("-mmcu=$(MCU)"));
@@ -432,10 +435,7 @@ function SetupProject(project)
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SD/src/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Servo"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SevenSegment"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SoftwareSerial"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/SPI"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire"));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Stepper/src"));
 
     AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
