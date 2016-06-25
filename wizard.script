@@ -313,6 +313,7 @@ function FillTargetData(project, target, info)
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/variants/" + variant));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/src"));
+        target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/SPI/src"));
 
         // Project linker options
         target.AddLinkerOption(_T("-mmcu=$(MCU)"));
@@ -420,7 +421,8 @@ function SetupProject(project)
     project.AddLinkerOption(_T("-Wl,--gc-sections"));
 
     project.AddIncludeDir(_T("."));
-    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src"));
+    project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Firmata"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Flash"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LCD4884"));
