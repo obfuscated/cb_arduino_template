@@ -440,7 +440,7 @@ function SetupProject(project)
     AddLibrary(project, _T("Servo"), _T("SERVO"));
     AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
     AddLibrary(project, _T("SPI"), _T("SPI"));
-    AddLibrary(project, _T("Stepoer"), _T("STEPPER"));
+    AddLibrary(project, _T("Stepper"), _T("STEPPER"));
     AddLibrary(project, _T("Wire"), _T("WIRE"));
 
     WarningsOn(project, GetCompilerID());
