@@ -1,5 +1,5 @@
 # Codeblocks template for Arduino developement
-> &copy; 2014-2014 Teodor Petrov
+> &copy; 2014-2016 Teodor Petrov
 > under GNU General Public License
 
 > &copy; 2012-2013 Scott Daniels (<http://provideyourown.com>)
@@ -34,10 +34,11 @@ On Linux this is /home/$USER/.local/share/codeblocks
 1. You need to install AVR compiler (AVR GCC) and set it up inside Code::Blocks
 2. You should create a symlink for the wizard. Link the root of this repo to ~/.local/share/codeblocks/templates/wizard/arduino
 3. Add the following two lines in the RegisterWizards function insde the file ~/.local/share/codeblocks/templates/wizard/config.script
-```
-RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
-RegisterWizard(wizTarget,  _T("arduino"), _T("Arduino"),         _T("Embedded Systems"));
-```
+
+   ```
+   RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
+   RegisterWizard(wizTarget,  _T("arduino"), _T("Arduino"),         _T("Embedded Systems"));
+   ```
 4. After you create a project with the wizard the Global Variables dialog will show up and will
 ask you for the path to the root of the Arduino project.
 
