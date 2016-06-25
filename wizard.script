@@ -315,7 +315,6 @@ function FillTargetData(project, target, info)
         }
 
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino"));
-        target.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/variants/" + variant));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/src"));
         target.AddIncludeDir(_T("$(ARDUINO_DIR)/hardware/arduino/avr/libraries/SPI/src"));
@@ -427,7 +426,6 @@ function SetupProject(project)
     project.AddCompilerOption(_T("-fno-threadsafe-statics"));
     project.AddLinkerOption(_T("-Wl,--gc-sections"));
 
-    project.AddIncludeDir(_T("."));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Ethernet/src/utility"));
     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/LiquidCrystal/src"));
