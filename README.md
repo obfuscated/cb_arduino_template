@@ -33,7 +33,13 @@ On Linux this is /home/$USER/.local/share/codeblocks
 
 1. You need to install AVR compiler (AVR GCC) and set it up inside Code::Blocks
 2. You should create a symlink for the wizard. Link the root of this repo to ~/.local/share/codeblocks/templates/wizard/arduino
-3. Add the following two lines in the RegisterWizards function insde the file ~/.local/share/codeblocks/templates/wizard/config.script
+
+3a. Create the local config.script if it does NOT already exist
+   ```
+   mkdir -p ~/.local/share/codeblocks/templates/wizard
+   cp /usr/share/codeblocks/templates/wizard/config.script ~/.local/share/codeblocks/templates/wizard/config.script
+   ```
+3b. Add the following two lines in the RegisterWizards function insde the file ~/.local/share/codeblocks/templates/wizard/config.script
 
    ```
    RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
