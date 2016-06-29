@@ -29,17 +29,30 @@ Code::Blocks SVN rev 9843, because there are some changes in the Scripted wizard
 ## Install
 
 Certain files should be placed or symlinked inside the User data folder of Code::Blocks.
-On Linux this is /home/$USER/.local/share/codeblocks
+On Linux this is /home/$USER/.local/share/codeblocks and ~/.local/share/codeblocks
 
 1. You need to install AVR compiler (AVR GCC) and set it up inside Code::Blocks
-2. You should create a symlink for the wizard. Link the root of this repo to ~/.local/share/codeblocks/templates/wizard/arduino
+2. On Linux, you should create a symlink for the wizard. Link the root of this repo to ~/.local/share/codeblocks/templates/wizard/arduino
 
-3a. Create the local config.script if it does NOT already exist
+On Windows; copy the files to %APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino folder
    ```
-   mkdir -p ~/.local/share/codeblocks/templates/wizard
+   mkdir %APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino
+   xcopy /Y wizard.script  "%APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino\"
+   xcopy /Y wizard.xrc     "%APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino\"
+   xcopy /Y *.png          "%APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino\"
+   xcopy /Y *.md           "%APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino\"
+   xcopy /Y /S files       "%APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\arduino\files\"
+   ```
+3a. Create the local config.script if it does NOT already exist
+On Linux this is ~/.local/share/codeblocks/templates/wizard/config.script
+   ```
    cp /usr/share/codeblocks/templates/wizard/config.script ~/.local/share/codeblocks/templates/wizard/config.script
    ```
-3b. Add the following two lines in the RegisterWizards function insde the file ~/.local/share/codeblocks/templates/wizard/config.script
+On Windows this is %APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\config.script
+   ```
+   xcopy "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\config.script" "%APPDATA%\CodeBlocks\share\codeblocks\templates\wizard\"
+   ```
+3b. Add the following two lines in the RegisterWizards function inside the local config.script file.
 
    ```
    RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
