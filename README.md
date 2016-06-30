@@ -21,26 +21,40 @@ Its main goal is to provide easy to use standalone template, which can be used i
 * Allows the user to choose the enabled libraries
 * Setups every target to build object and binary files in a separate folders
 
-## Requires
+## Requirements
 
-Arduino 1.6.9. Using 1.0.x won't work. I've not tested anything older than 1.6.9.
+The wizard requires minimum Arduino 1.6.9 to work properly. The Wizard does not support Arduino 1.0.x.
 Code::Blocks SVN rev 9843, because there are some changes in the Scripted wizard plugin.
 
-## Install
+## Installation
 
-Certain files should be placed or symlinked inside the User data folder of Code::Blocks.
-On Linux this is /home/$USER/.local/share/codeblocks
+1. Install and configure GCC AVR compiler in the Code::Blocks
+2. Checkout or download the Wizard to your computer
 
-1. You need to install AVR compiler (AVR GCC) and set it up inside Code::Blocks
-2. You should create a symlink for the wizard. Link the root of this repo to ~/.local/share/codeblocks/templates/wizard/arduino
-3. Add the following two lines in the RegisterWizards function insde the file ~/.local/share/codeblocks/templates/wizard/config.script
+On Windows:
+
+
+On Linux:
+
+1. Create the directory structure 
+   `~/.local/share/codeblocks/templates/wizard/`
+2. Create a link to the location of the wizard from the steps above:
+   `~/.local/share/codeblocks/templates/wizard/arduino-> /<somelocation>/cb_arduino_template`
+3. Copy the main config.script file to the local config locations:
+   `cp /usr/share/codeblocks/templates/wizard/config.script ~/.local/share/codeblocks/templates/wizard/`
+4. Add the following two lines in the RegisterWizards function to the file
+   `~/.local/share/codeblocks/templates/wizard/config.script` if missing
 
    ```
    RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
    RegisterWizard(wizTarget,  _T("arduino"), _T("Arduino"),         _T("Embedded Systems"));
    ```
-4. After you create a project with the wizard the Global Variables dialog will show up and will
-ask you for the path to the root of the Arduino project.
+5. After you create a project with the wizard the Global Variables dialog will show up and will
+ask you for the path to the root of the Arduino installation:
+```
+ls ~/bin/arduino-1.6.9/
+arduino  arduino-builder  dist  examples  hardware  install.sh  java  lib  libraries  reference  revisions.txt  tools  tools-builder  uninstall.sh
+```
 
 ## Notes
 
