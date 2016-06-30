@@ -36,13 +36,14 @@ On Windows:
 
 On Linux:
 
-1. Create the directory structure `~/.local/share/codeblocks/templates/wizard/`
+1. Create the directory structure 
+   `~/.local/share/codeblocks/templates/wizard/`
 2. Create a link to the location of the wizard from the steps above:
-      `~/.local/share/codeblocks/templates/wizard/arduino-> /<somelocation>/cb_arduino_template`
+   `~/.local/share/codeblocks/templates/wizard/arduino-> /<somelocation>/cb_arduino_template`
 3. Copy the main config.script file to the local config locations:
    `cp /usr/share/codeblocks/templates/wizard/config.script ~/.local/share/codeblocks/templates/wizard/`
 4. Add the following two lines in the RegisterWizards function to the file
-      `~/.local/share/codeblocks/templates/wizard/config.script if missing`
+   `~/.local/share/codeblocks/templates/wizard/config.script` if missing
 
    ```
    RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
