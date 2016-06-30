@@ -33,11 +33,14 @@ Code::Blocks SVN rev 9843, because there are some changes in the Scripted wizard
 
 On Windows:
 
+
 On Linux:
+
 1. Create the ~/.local/share/codeblocks/templates/wizard/
 2. Create a link to the location of the wizard from the steps above: 
       ~/.local/share/codeblocks/templates/wizard/arduino-> /<some_location>/cb_arduino_template
-3. Copy the main config.script file to the local config locations:
+
+3.Copy the main config.script file to the local config locations:
    cp /usr/share/codeblocks/templates/wizard/config.script ~/.local/share/codeblocks/templates/wizard/
 4. Add the following two lines in the RegisterWizards function to the file
       ~/.local/share/codeblocks/templates/wizard/config.script if missing
@@ -46,9 +49,10 @@ On Linux:
    RegisterWizard(wizProject, _T("arduino"), _T("Arduino Project"), _T("Embedded Systems"));
    RegisterWizard(wizTarget,  _T("arduino"), _T("Arduino"),         _T("Embedded Systems"));
    ```
-4. After you create a project with the wizard the Global Variables dialog will show up and will
+5. After you create a project with the wizard the Global Variables dialog will show up and will
 ask you for the path to the root of the Arduino installation:
-```   ls ~/bin/arduino-1.6.9/
+```
+ls ~/bin/arduino-1.6.9/
 arduino  arduino-builder  dist  examples  hardware  install.sh  java  lib  libraries  reference  revisions.txt  tools  tools-builder  uninstall.sh
 ```
 
